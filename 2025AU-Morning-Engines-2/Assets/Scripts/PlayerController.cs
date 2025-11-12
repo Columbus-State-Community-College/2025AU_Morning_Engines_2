@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
         //Jump Button
         if (Input.GetKeyDown(KeyCode.Space) == true)
         {
-            rb.velocity = Vector3.up * jumpheight;
+            rb.linearVelocity = Vector3.up * jumpheight;
         }
 
 

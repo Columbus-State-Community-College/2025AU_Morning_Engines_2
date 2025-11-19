@@ -23,7 +23,7 @@ const username = "cscc-mini-projects";
 // ESPECIALLY IF YOU CHANGE THE GAME URL ON itch.io
 const gamename = "2025au-m2-holiday-rush";
 // If you're on Linux, you may need to change this...
-const butler_command_file = "./butler/versions/15.21.0/mac/butler";
+const butler_command_file = "./butler/versions/15.24.0/mac/butler";
 // END OF ATTENTION BLOCK
 
 function CurrentVersionString() {

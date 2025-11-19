@@ -1,43 +1,46 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
+using System.Collections;
 
 public class EnemyBehavior : MonoBehaviour
 {
+ public Transform player;
+ public GameObject Enemy;
+ private int EnemyHP = 3;
+ public GameManager manager;
+ private NavMeshAgent navMeshAgent;
 
-    public LogicScript logic;
-    private int EnemyHP = 3;
-    public GameObject Enemy;
-    // Start is called before the first frame update
-    void Start()
+ void Start()
     {
-        logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
+        navMeshAgent = GetComponent<NavMeshAgent>();
     }
 
-    // Update is called once per frame
-    void Update()
+ void Update()
     {
-
+        if (player != null)
+            {    
+            navMeshAgent.SetDestination(player.position);
+            }
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-
-        logic.HP_Decrease();
-        Enemy_Damage();
-    }
-
-    public void Enemy_Damage()
-    {
+  void OnTriggerEnter (Collider other) 
+   {
+       if (other.gameObject.CompareTag("Player")) 
+       {
+            manager.HP_Decrease();
+            Enemy_Damage();
+       }
+   }
+  public void Enemy_Damage()
+   {
         EnemyHP -= 1;
         Delete_Enemy();
-    }
+   }
     
-    private void Delete_Enemy()
-    {
+  private void Delete_Enemy()
+   {
         if (EnemyHP == 0)
         {
             Destroy(Enemy);
         }
-    }
+   }
 }

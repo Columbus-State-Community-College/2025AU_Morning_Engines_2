@@ -21,7 +21,6 @@ public class LogicScript : MonoBehaviour
     {
         if (playerHealth == 0)
         {
-            Debug.Log("No more Health");
             GameOver();
 
         }

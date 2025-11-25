@@ -27,9 +27,10 @@ public class Attackscript : MonoBehaviour
     
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Hit");
         EB.Enemy_Damage();
         
     }
+
+    
 
 }

@@ -22,8 +22,10 @@ public class EnemyBehavior : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-
-        logic.HP_Decrease();
+        if (other.gameObject.CompareTag("Player"))
+        {
+            logic.HP_Decrease();
+        }
         Enemy_Damage();
     }
 

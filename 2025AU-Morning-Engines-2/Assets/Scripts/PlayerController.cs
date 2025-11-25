@@ -8,6 +8,9 @@ public class PlayerController : MonoBehaviour
     public float movespeed = 10f;
     public float jumpheight = 5f;
     public float Dodge = 15f;
+
+    private float attackTime = 0.25f;
+    private float timer = 0f;
     public Rigidbody rb;
 
     public GameObject hitbox;
@@ -28,6 +31,11 @@ public class PlayerController : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+    {
+        Movement();
+    }
+
+    private void Movement()
     {
         float x = Input.GetAxis("Horizontal") * Time.deltaTime * movespeed;
         float z = Input.GetAxis("Vertical") * Time.deltaTime * movespeed;
@@ -73,17 +81,14 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q) == true)
         {
             hitbox.SetActive(true);
+            
+            
         }
 
         if (Input.GetKeyUp(KeyCode.Q) == true)
         {
             hitbox.SetActive(false);
         }
-
-
-
-
     }
-
 
 }

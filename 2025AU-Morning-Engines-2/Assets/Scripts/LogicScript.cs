@@ -13,6 +13,8 @@ public class LogicScript : MonoBehaviour
     public TextMeshProUGUI Gate1;
     public TextMeshProUGUI GameOverText;
     public GameObject GameOverScreen;
+    public GameObject[] collectibleModels;
+    public Material[] collectibleMaterials; 
     public static LogicScript instance;
 
     void Start()
@@ -36,14 +38,28 @@ public class LogicScript : MonoBehaviour
 
     void SpawnFirstCollectible()
     {
-        for (int i = 0; i < CollectibleTotal; i++)
+    for (int i = 0; i < CollectibleTotal; i++)
         {
-            Vector3 spawnPosition = new Vector3(Random.Range(-25, 25), 2, Random.Range(-25, 25));
-            Quaternion spawnRotation = Quaternion.identity;
-
-            Instantiate(collectible1, spawnPosition, spawnRotation);
-        }
+        Vector3 pos = new Vector3(Random.Range(-25, 25), 2, Random.Range(-25, 25));
+        GameObject collectible = Instantiate(collectible1, pos, Quaternion.identity);
+        Transform holder = collectible.transform.Find("ModelHolder");
+        if (holder == null)
+            {
+            Debug.LogError("ModelHolder not found in collectible prefab!");
+            return;
+            }
+        GameObject chosenModel = collectibleModels[Random.Range(0, collectibleModels.Length)];
+        GameObject modelInstance = Instantiate(chosenModel, holder);
+        modelInstance.transform.localPosition = Vector3.zero;
+        modelInstance.transform.localRotation = Quaternion.identity;
+        Material chosenMat = collectibleMaterials[Random.Range(0, collectibleMaterials.Length)];
+        foreach (Renderer r in modelInstance.GetComponentsInChildren<Renderer>())
+            {
+            r.material = chosenMat;
+            }
     }
+    }
+
 
     public void CoinTotalUpdate() 
     {

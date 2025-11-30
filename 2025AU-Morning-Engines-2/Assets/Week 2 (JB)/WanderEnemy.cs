@@ -11,7 +11,7 @@ public class WanderingEnemy : MonoBehaviour
     private bool goingUp = true;
     private Vector3 EnemyPos;
     public GameObject Enemy;
-    public GameManager manager;
+    public LogicScript logic;
 
     void Start()
     {
@@ -45,7 +45,7 @@ public class WanderingEnemy : MonoBehaviour
    {
        if (other.gameObject.CompareTag("Player")) 
        {
-            manager.HP_Decrease();
+            logic.HP_Decrease();
             Enemy_Damage();
        }
    }

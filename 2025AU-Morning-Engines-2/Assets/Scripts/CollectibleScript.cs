@@ -25,7 +25,7 @@ public class CollectibleScript : MonoBehaviour
    {
        if (other.gameObject.CompareTag("Player")) 
        {
-           GameManager.instance.CoinTotalUpdate();
+           LogicScript.instance.CoinTotalUpdate();
            gameObject.SetActive(false);
        }
    }

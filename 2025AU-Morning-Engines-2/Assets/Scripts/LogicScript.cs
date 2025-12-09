@@ -5,12 +5,11 @@ using UnityEngine.SceneManagement;
 public class LogicScript : MonoBehaviour
 {
     private int coinTotal;
-    private int CollectibleTotal = 10;
+    private int CollectibleTotal = 20;
     private int playerHealth = 3;
     public TextMeshProUGUI PlayerHP;
     public GameObject collectible1;
     public TextMeshProUGUI coinDisplay;
-    public TextMeshProUGUI Gate1;
     public TextMeshProUGUI GameOverText;
     public GameObject GameOverScreen;
     public GameObject[] collectibleModels;
@@ -20,7 +19,6 @@ public class LogicScript : MonoBehaviour
     void Start()
     {
         SpawnFirstCollectible();
-        Gate1.enabled = false;
         GameOverText.enabled = false;
     }
     
@@ -64,12 +62,11 @@ public class LogicScript : MonoBehaviour
     public void CoinTotalUpdate() 
     {
         coinTotal++;
-        coinDisplay.text =  "Coins: " + coinTotal.ToString();
+        coinDisplay.text =  "Ornaments: " + coinTotal.ToString();
 
         if (coinTotal == 10)
             {
             Debug.Log("10 collectibles! Nice work");
-            Gate1.enabled = true;
             }
         if (coinTotal == 20)
             {

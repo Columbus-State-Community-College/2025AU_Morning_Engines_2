@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public float jumpheight = 5f;
     public float Dodge = 15f;
 
-    private float attackTime = 0.25f;
+    private float attackTime = 0.5f;
     private float timer = 0f;
     public Rigidbody rb;
 

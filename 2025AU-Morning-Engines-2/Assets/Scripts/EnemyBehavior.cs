@@ -12,6 +12,15 @@ public class EnemyBehavior : MonoBehaviour
     void Start()
     {
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
+
+        if (gameObject.CompareTag("Boss"))
+        {
+            EnemyHP = 5;
+        }
+        else
+        {
+            EnemyHP = 3;
+        }
     }
 
     // Update is called once per frame

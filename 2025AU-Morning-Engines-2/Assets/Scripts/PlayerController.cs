@@ -21,7 +21,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform cameraTransform;
     [SerializeField] float mousesensitivity = 3f;
 
-
+    private float idleDrag = 5f;  // Higher drag when idle
+    private float moveDrag = 0f;  // Low or no drag when moving
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +34,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Movement();
+        ApplyFriction();
     }
 
     private void Movement()
@@ -52,10 +54,10 @@ public class PlayerController : MonoBehaviour
 
     
         
-        //Jump Button
+        // Jumping
         if (Input.GetKeyDown(KeyCode.Space) == true)
         {
-            rb.linearVelocity = Vector3.up * jumpheight;
+            rb.linearVelocity = new Vector3(rb.linearVelocity.x, jumpheight, rb.linearVelocity.z); 
         }
 
 
@@ -91,4 +93,26 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void ApplyFriction()
+    {
+        float horizontalInput = Input.GetAxis("Horizontal");
+        float verticalInput = Input.GetAxis("Vertical");
+
+        if (horizontalInput == 0f && verticalInput == 0f)
+        {
+            rb.linearVelocity = new Vector3(
+                rb.linearVelocity.x * (1 - idleDrag * Time.deltaTime), 
+                rb.linearVelocity.y, 
+                rb.linearVelocity.z * (1 - idleDrag * Time.deltaTime)
+            );
+        }
+        else 
+        {
+            rb.linearVelocity = new Vector3(
+                rb.linearVelocity.x * (1 - moveDrag * Time.deltaTime),
+                rb.linearVelocity.y,
+                rb.linearVelocity.z * (1 - moveDrag * Time.deltaTime)
+            );
+        }
+    }
 }

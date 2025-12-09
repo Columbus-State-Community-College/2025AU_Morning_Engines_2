@@ -7,6 +7,9 @@ TagManager:
   - Weapon
   - Enemy
   - Boss
+  - StartCave
+  - BossCave
+  - Logic
   layers:
   - Default
   - TransparentFX

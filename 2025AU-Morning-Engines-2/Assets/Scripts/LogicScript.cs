@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class LogicScript : MonoBehaviour
 {
     private int coinTotal;
-    private int CollectibleTotal = 10;
+    private int CollectibleTotal = 20;
     private int playerHealth = 3;
     public TextMeshProUGUI PlayerHP;
     public GameObject collectible1;
@@ -62,7 +62,7 @@ public class LogicScript : MonoBehaviour
     public void CoinTotalUpdate() 
     {
         coinTotal++;
-        coinDisplay.text =  "Coins: " + coinTotal.ToString();
+        coinDisplay.text =  "Ornaments: " + coinTotal.ToString();
 
         if (coinTotal == 10)
             {

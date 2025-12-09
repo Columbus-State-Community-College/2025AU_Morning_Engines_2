@@ -5,9 +5,15 @@ using UnityEngine;
 public class CollectibleScript : MonoBehaviour
 {
     private Vector3 startPos;
+    private TreeController treeController;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        treeController = FindFirstObjectByType<TreeController>();
+        if (treeController == null)
+        {
+            Debug.LogError("TreeController not found in the scene. Please ensure there is a TreeController in the scene.");
+        }
         startPos = transform.position;
     }
 
@@ -23,6 +29,10 @@ public class CollectibleScript : MonoBehaviour
 
     void OnTriggerEnter (Collider other) 
    {
+       if (treeController != null)
+       {
+           treeController.Collect();
+       }
        if (other.gameObject.CompareTag("Player")) 
        {
            LogicScript.instance.CoinTotalUpdate();

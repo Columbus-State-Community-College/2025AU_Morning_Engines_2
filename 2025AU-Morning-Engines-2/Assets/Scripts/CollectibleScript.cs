@@ -37,6 +37,10 @@ public class CollectibleScript : MonoBehaviour
        {
            LogicScript.instance.CoinTotalUpdate();
            gameObject.SetActive(false);
+           if (gameObject.CompareTag("BossStar"))
+            {
+                treeController.StarCollect();
+            }
        }
    }
 }

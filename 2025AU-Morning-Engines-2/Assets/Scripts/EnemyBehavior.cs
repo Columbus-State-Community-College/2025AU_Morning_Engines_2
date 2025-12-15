@@ -8,9 +8,11 @@ public class EnemyBehavior : MonoBehaviour
     public LogicScript logic;
     private int EnemyHP = 3;
     public GameObject Enemy;
+    public GameObject StarItem;
     // Start is called before the first frame update
     void Start()
     {
+        StarItem.SetActive(false);
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
 
         if (gameObject.CompareTag("Boss"))
@@ -49,6 +51,10 @@ public class EnemyBehavior : MonoBehaviour
         if (EnemyHP == 0)
         {
             Destroy(Enemy);
+        }
+        if (gameObject.CompareTag("Boss"))
+        {
+            StarItem.SetActive(true);
         }
     }
 }

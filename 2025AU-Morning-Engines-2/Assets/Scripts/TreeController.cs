@@ -6,6 +6,7 @@ using TMPro;
 public class TreeController : MonoBehaviour
 {
     public List<GameObject> ornaments = new List<GameObject>();
+    public GameObject star;
     public int totalCollectibles = 20;
     private int collectedCount = 0;
 
@@ -15,6 +16,7 @@ public class TreeController : MonoBehaviour
         {
             ornament.SetActive(false);
         }
+        star.SetActive(false);
     }
 
     public void Collect()
@@ -24,5 +26,10 @@ public class TreeController : MonoBehaviour
         {
             ornaments[collectedCount - 1].SetActive(true);
         }
+    }
+
+    public void StarCollect()
+    {
+        star.SetActive(true);
     }
 }

@@ -19583,6 +19583,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game_Terrian
       objectReference: {fileID: 0}
+    - target: {fileID: 4377919124466262767, guid: 28cd298f59b24224ba1ca856c0545731, type: 3}
+      propertyPath: m_ProvidesContacts
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5710749701066162415, guid: 28cd298f59b24224ba1ca856c0545731, type: 3}
+      propertyPath: m_ProvidesContacts
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7631507063960809508, guid: 28cd298f59b24224ba1ca856c0545731, type: 3}
+      propertyPath: m_ProvidesContacts
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8780393125584666249, guid: 28cd298f59b24224ba1ca856c0545731, type: 3}
+      propertyPath: m_ProvidesContacts
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
